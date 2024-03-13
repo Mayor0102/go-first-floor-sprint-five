@@ -38,6 +38,10 @@ func (t Training) meanSpeed() float64 {
 
 	durationInHours := t.Duration.Hours()
 
+	if durationInHours == 0 {
+		panic("Некорректное значение Duration: 0")
+	}
+
 	return distForTrain / durationInHours
 }
 
@@ -208,6 +212,10 @@ func (s Swimming) meanSpeed() float64 {
 
 	totalDistance := float64(s.LengthPool) * float64(s.CountPool) / MInKm
 	durationInHours := s.Training.Duration.Hours()
+
+	if durationInHours == 0 {
+		panic("Некорректное значение Duration: 0")
+	}
 
 	return totalDistance / durationInHours
 }
